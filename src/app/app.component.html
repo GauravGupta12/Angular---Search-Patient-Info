@@ -1,0 +1,34 @@
+<h1>
+  Search Patient Info
+</h1>
+<div>
+	<app-search-text [mySearchText] = "searchText" ></app-search-text>
+	<br/>
+	<div>
+		
+		<input type="text" (keyup)="search()" placeholder="Enter first name" [(ngModel)]="searchText"  />		
+		<button (click)="search()">Search Patient</button>
+	</div>
+	<br/>
+	<div>
+		<table style="border:1px solid green;">
+			<thead style="background-color:yellow;">
+				 <tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email Address</th>
+					<th>Doctor Name</th>
+				 </tr>
+			</thead>
+			<tbody style="background-color:pink;">
+				<tr *ngFor="let patient of searchResult">
+				<td>{{patient.firstName}}</td>
+				<td>{{patient.lastName}}</td>
+				<td>{{patient.emailAddress}}</td>
+				<td>{{patient.doctorLastName}}</td>
+			</tr>
+			</tbody>
+			
+		</table>
+	</div>
+</div>
